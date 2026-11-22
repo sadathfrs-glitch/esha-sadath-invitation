@@ -19,3 +19,4 @@ Open `index.html` in a browser. For a public share link, upload the folder to a 
 - Recommended guest colours: champagne ivory, sage green, blush pink, pistachio sage, dusty lilac, and powder blue
 
 The venue button opens Google Maps for Horizon Events & Hospitality at Alfa Horizon, Vallarpadam, Kochi.
+- Mobile-friendly spacing, a blended transparent burgundy-flower ornament, and a smoother two-panel opening transition.
