@@ -332,6 +332,14 @@
       .family-section .section-flower,.palette-section .section-flower { left:10px; right:auto; bottom:10px; top:auto; }
       .closing-flower { right:10px; bottom:10px; width:clamp(108px,32vw,140px); opacity:.31; }
     }
+
+    /* Keep the essential cover-opening transition visible on reduced-motion phones. */
+    @media (prefers-reduced-motion:reduce) {
+      .cover-button { transition:transform 780ms cubic-bezier(.22,1,.36,1),opacity 620ms ease 120ms,box-shadow .55s ease !important; }
+      .cover-button.is-opening { transform:translate3d(0,-8px,0) scale(.96); opacity:0; }
+      .door-panel { transition:transform 900ms cubic-bezier(.22,.61,.36,1),opacity 180ms ease !important; }
+      .cover-screen.is-open { transition:opacity 620ms ease,visibility 0s linear 620ms !important; }
+    }
   </style>
 </head>
 <body>
@@ -463,15 +471,15 @@
       document.body.style.overflow = 'auto';
       document.querySelectorAll('.reveal').forEach((el, i) => setTimeout(() => el.classList.add('visible'), 880 + i * 110));
       if (hasMusic) music.play().then(() => setMusicState(true)).catch(() => setMusicState(false));
-      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if (reduceMotion) {
-        cover.classList.add('doors-parting', 'is-open');
-        setTimeout(() => cover.remove(), 20);
-      } else {
+      // Give mobile browsers two paint frames to register the closed-door state,
+      // then start the CSS transition. The opening always plays, including when
+      // the device has reduced-motion enabled, because this tap animation is key
+      // to the invitation experience.
+      requestAnimationFrame(() => requestAnimationFrame(() => {
         setTimeout(() => cover.classList.add('doors-parting'), 110);
-        setTimeout(() => cover.classList.add('is-open'), 980);
-        setTimeout(() => cover.remove(), 1680);
-      }
+      }));
+      setTimeout(() => cover.classList.add('is-open'), 1060);
+      setTimeout(() => cover.remove(), 1780);
     });
 
     musicButton.addEventListener('click', async () => {
