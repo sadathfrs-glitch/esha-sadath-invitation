@@ -475,8 +475,8 @@
       requestAnimationFrame(() => requestAnimationFrame(() => {
         setTimeout(() => cover.classList.add('doors-parting'), 350);
       }));
-      setTimeout(() => cover.classList.add('is-open'), 500);
-      setTimeout(() => cover.remove(), 2200);
+      setTimeout(() => cover.classList.add('is-open'), 2100);
+      setTimeout(() => cover.remove(), 2150);
     });
 
     musicButton.addEventListener('click', async () => {
@@ -573,5 +573,47 @@
       .cover-screen.is-opening .door-panel { transition:transform 1650ms cubic-bezier(.4,0,.2,1),opacity 520ms ease !important; }
       .cover-screen.is-opening .cover-button { animation-duration:2050ms !important; animation-iteration-count:1 !important; }
       .cover-screen.is-open { transition:opacity 1250ms cubic-bezier(.4,0,.2,1) 200ms,visibility 0s linear 1650ms !important; }
+    }
+  </style>
+
+
+  <style>
+    /* Open directly into the invitation: reveal the hero behind moving doors, with no crossfade. */
+    .cover-screen.doors-parting { background:transparent !important; }
+    .cover-screen.doors-parting::before { content:none !important; }
+    .cover-screen.is-opening::after { animation:none !important; opacity:0 !important; }
+    .cover-screen.is-opening .door-panel {
+      opacity:1 !important;
+      transition:transform 1750ms cubic-bezier(.45,0,.2,1) !important;
+    }
+    .cover-screen.doors-parting .door-panel-left {
+      transform:translate3d(-120%,0,-80px) rotateY(-78deg) !important;
+      opacity:1 !important; transition-delay:0s !important;
+    }
+    .cover-screen.doors-parting .door-panel-right {
+      transform:translate3d(120%,0,-80px) rotateY(78deg) !important;
+      opacity:1 !important; transition-delay:0s !important;
+    }
+    .cover-screen.is-opening .cover-button {
+      animation:cover-fold-away 1750ms cubic-bezier(.4,0,.2,1) both !important;
+      transition:none !important;
+    }
+    @keyframes cover-fold-away {
+      0% { transform:translate3d(0,0,0) scale(1); opacity:1; }
+      20% { transform:translate3d(0,-7px,20px) scale(1.025); opacity:1; }
+      100% { transform:translate3d(0,-18px,-100px) scale(.04); opacity:1; }
+    }
+    .cover-screen.is-open {
+      opacity:1 !important; visibility:hidden !important; pointer-events:none !important;
+      transition:none !important;
+    }
+    .hero-inner.reveal { opacity:1 !important; transform:none !important; transition:none !important; }
+    @media (max-width:560px) {
+      .cover-screen { perspective:1050px; }
+      .door-transition { perspective:850px; }
+    }
+    @media (prefers-reduced-motion:reduce) {
+      .cover-screen.is-opening .door-panel { transition:transform 1750ms cubic-bezier(.45,0,.2,1) !important; }
+      .cover-screen.is-opening .cover-button { animation-duration:1750ms !important; animation-iteration-count:1 !important; }
     }
   </style>
