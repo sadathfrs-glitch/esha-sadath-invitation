@@ -595,13 +595,15 @@
       opacity:1 !important; transition-delay:0s !important;
     }
     .cover-screen.is-opening .cover-button {
+      transform-origin:left center;
+      transform-style:preserve-3d;
+      backface-visibility:hidden;
       animation:cover-fold-away 1750ms cubic-bezier(.4,0,.2,1) both !important;
       transition:none !important;
     }
     @keyframes cover-fold-away {
-      0% { transform:translate3d(0,0,0) scale(1); opacity:1; }
-      20% { transform:translate3d(0,-7px,20px) scale(1.025); opacity:1; }
-      100% { transform:translate3d(0,-18px,-100px) scale(.04); opacity:1; }
+      0%,20% { transform:rotateY(0deg); opacity:1; }
+      100% { transform:rotateY(-102deg); opacity:1; }
     }
     .cover-screen.is-open {
       opacity:1 !important; visibility:hidden !important; pointer-events:none !important;
