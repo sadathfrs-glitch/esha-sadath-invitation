@@ -298,6 +298,28 @@
       .palette-section .section-flower { left:-118px; right:auto; bottom:-40px; width:clamp(198px,56vw,230px); opacity:.3; }
       .closing-flower { right:-118px; bottom:-42px; width:clamp(200px,56vw,232px); opacity:.34; }
     }
+
+    .cover-logo { position:relative; z-index:1; display:block; flex:none; width:clamp(72px,21vw,104px); height:clamp(122px,18vh,154px); object-fit:contain; margin:-8px auto -10px; filter:drop-shadow(0 5px 15px rgba(232,220,201,.14)); }
+    @media (max-width:560px) { .cover-logo { width:clamp(70px,20vw,88px); height:clamp(116px,17vh,138px); margin:-4px auto; } }
+    /* Full, softly blended flower silhouettes stay inside each panel edge. */
+    .flower-ornament { max-width:calc(100% - 20px); filter:none; }
+    .flower-cover { right:12px; bottom:14px; width:clamp(118px,30vw,175px); opacity:.48; transform:none; }
+    .hero-flower-left { left:12px; top:14px; right:auto; bottom:auto; width:clamp(120px,27vw,205px); opacity:.32; transform:none; }
+    .hero-flower { right:12px; bottom:14px; width:clamp(120px,27vw,205px); opacity:.34; transform:none; }
+    .section-flower { right:12px; bottom:12px; width:clamp(108px,23vw,168px); opacity:.27; transform:none; }
+    .family-section .section-flower { left:12px; right:auto; top:12px; bottom:auto; width:clamp(108px,23vw,160px); opacity:.25; transform:none; }
+    .event-section .section-flower { right:12px; bottom:12px; width:clamp(110px,24vw,170px); opacity:.27; transform:none; }
+    .palette-section .section-flower { left:12px; right:auto; bottom:12px; width:clamp(108px,23vw,166px); opacity:.25; transform:none; }
+    .closing-flower { right:12px; bottom:12px; width:clamp(118px,26vw,178px); opacity:.34; transform:none; }
+    @media (max-width:560px) {
+      .flower-cover { right:10px; bottom:10px; width:clamp(112px,34vw,145px); opacity:.4; }
+      .hero-flower-left { left:10px; top:10px; width:clamp(112px,35vw,145px); opacity:.27; }
+      .hero-flower { right:10px; bottom:10px; width:clamp(112px,35vw,145px); opacity:.29; }
+      .section-flower,.family-section .section-flower,.event-section .section-flower,.palette-section .section-flower { width:clamp(100px,30vw,132px); }
+      .section-flower,.event-section .section-flower { right:10px; bottom:10px; }
+      .family-section .section-flower,.palette-section .section-flower { left:10px; right:auto; bottom:10px; top:auto; }
+      .closing-flower { right:10px; bottom:10px; width:clamp(108px,32vw,140px); opacity:.31; }
+    }
   </style>
 </head>
 <body>
@@ -306,6 +328,7 @@
     <button class="cover-button" id="openInvitation" type="button" aria-label="Open the invitation">
       <img class="flower-ornament flower-cover" src="assets/burgundy-flower-cutout.png" alt="" aria-hidden="true">
       <span class="cover-arabic" lang="ar" dir="rtl">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</span>
+      <img class="cover-logo" src="assets/ribbon-logo-beige.svg" alt="Esha and Sadath ribbon emblem">
       <span>
         <span class="cover-kicker">Come celebrate the love that brought us here</span>
         <span class="cover-names"><span class="cover-name-line">ESHA SABEESH IBRAHIM</span><span class="cover-amp">&amp;</span><span class="cover-name-line">SADATH FARIZ</span></span>
