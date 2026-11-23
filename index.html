@@ -469,14 +469,14 @@
       cover.classList.add('is-opening');
       invitation.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'auto';
-      document.querySelectorAll('.reveal').forEach((el, i) => setTimeout(() => el.classList.add('visible'), 2360 + i * 150));
+      document.querySelectorAll('.reveal').forEach((el, i) => setTimeout(() => el.classList.add('visible'), 850 + i * 170));
       if (hasMusic) music.play().then(() => setMusicState(true)).catch(() => setMusicState(false));
       // Stage the richer door movement after the tap has painted on mobile.
       requestAnimationFrame(() => requestAnimationFrame(() => {
-        setTimeout(() => cover.classList.add('doors-parting'), 520);
+        setTimeout(() => cover.classList.add('doors-parting'), 350);
       }));
-      setTimeout(() => cover.classList.add('is-open'), 2260);
-      setTimeout(() => cover.remove(), 3020);
+      setTimeout(() => cover.classList.add('is-open'), 500);
+      setTimeout(() => cover.remove(), 2200);
     });
 
     musicButton.addEventListener('click', async () => {
@@ -524,7 +524,7 @@
 
 
   <style>
-    /* A slower, layered reveal: the gold seam blooms, then the two doors swing away. */
+    /* The doors uncover the invitation text as it comes into view. */
     .cover-screen { perspective:1500px; perspective-origin:50% 48%; transform-style:preserve-3d; }
     .cover-screen::after {
       content:""; position:absolute; z-index:2; top:0; bottom:0; left:50%; width:0;
@@ -541,7 +541,7 @@
     .door-transition { z-index:4; perspective:1300px; perspective-origin:center; transform-style:preserve-3d; }
     .door-panel {
       width:50.5%; opacity:0; backface-visibility:hidden; transform-style:preserve-3d;
-      transition:transform 1650ms cubic-bezier(.72,0,.22,1),opacity 520ms ease;
+      transition:transform 1650ms cubic-bezier(.4,0,.2,1),opacity 520ms ease;
     }
     .door-panel::after {
       content:""; position:absolute; inset:0; pointer-events:none;
@@ -550,9 +550,9 @@
     }
     .door-panel-left { transform-origin:left center; }
     .door-panel-right { transform-origin:right center; }
-    .cover-screen.is-opening .door-panel { opacity:1; transition-delay:260ms,100ms; }
-    .cover-screen.doors-parting .door-panel-left { transform:translate3d(-108%,0,-60px) rotateY(-76deg); opacity:0; transition-delay:0ms,980ms; }
-    .cover-screen.doors-parting .door-panel-right { transform:translate3d(108%,0,-60px) rotateY(76deg); opacity:0; transition-delay:0ms,980ms; }
+    .cover-screen.is-opening .door-panel { opacity:1; transition-delay:50ms,0ms; }
+    .cover-screen.doors-parting .door-panel-left { transform:translate3d(-108%,0,-60px) rotateY(-76deg); opacity:0; transition-delay:0ms,700ms; }
+    .cover-screen.doors-parting .door-panel-right { transform:translate3d(108%,0,-60px) rotateY(76deg); opacity:0; transition-delay:0ms,700ms; }
     .cover-screen.is-opening .cover-button {
       animation:cover-lift-away 2050ms cubic-bezier(.2,.72,.22,1) both;
       transition:none;
@@ -562,7 +562,7 @@
       42% { transform:translate3d(0,-10px,30px) scale(1.035); opacity:1; }
       100% { transform:translate3d(0,-24px,90px) scale(1.1); opacity:0; }
     }
-    .cover-screen.is-open { opacity:0; visibility:hidden; pointer-events:none; transition:opacity 760ms ease,visibility 0s linear 760ms; }
+    .cover-screen.is-open { opacity:0; visibility:hidden; pointer-events:none; transition:opacity 1250ms cubic-bezier(.4,0,.2,1) 200ms,visibility 0s linear 1650ms; }
     @media (max-width:560px) {
       .cover-screen { perspective:980px; }
       .door-transition { perspective:900px; }
@@ -570,8 +570,8 @@
     }
     @media (prefers-reduced-motion:reduce) {
       .cover-screen.is-opening::after { animation-duration:2100ms !important; }
-      .cover-screen.is-opening .door-panel { transition:transform 1650ms cubic-bezier(.72,0,.22,1),opacity 520ms ease !important; }
+      .cover-screen.is-opening .door-panel { transition:transform 1650ms cubic-bezier(.4,0,.2,1),opacity 520ms ease !important; }
       .cover-screen.is-opening .cover-button { animation-duration:2050ms !important; animation-iteration-count:1 !important; }
-      .cover-screen.is-open { transition:opacity 760ms ease,visibility 0s linear 760ms !important; }
+      .cover-screen.is-open { transition:opacity 1250ms cubic-bezier(.4,0,.2,1) 200ms,visibility 0s linear 1650ms !important; }
     }
   </style>
