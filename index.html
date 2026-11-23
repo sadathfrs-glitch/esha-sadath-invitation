@@ -299,8 +299,20 @@
       .closing-flower { right:-118px; bottom:-42px; width:clamp(200px,56vw,232px); opacity:.34; }
     }
 
-    .cover-logo { position:relative; z-index:1; display:block; flex:none; width:clamp(72px,21vw,104px); height:clamp(122px,18vh,154px); object-fit:contain; margin:-8px auto -10px; filter:drop-shadow(0 5px 15px rgba(232,220,201,.14)); }
-    @media (max-width:560px) { .cover-logo { width:clamp(70px,20vw,88px); height:clamp(116px,17vh,138px); margin:-4px auto; } }
+    .cover-logo { position:relative; z-index:1; display:block; flex:none; width:clamp(58px,15vw,78px); height:clamp(96px,14vh,118px); object-fit:contain; margin:0 auto; filter:drop-shadow(0 4px 12px rgba(232,220,201,.12)); }
+    .cover-copy { width:100%; }
+    .cover-kicker { display:block; max-width:100%; font-size:.7rem; line-height:1.55; letter-spacing:.17em; }
+    .cover-names { margin:17px 0 8px; font-size:clamp(1.35rem,6vw,1.85rem); line-height:1.12; }
+    .cover-date { margin-top:16px; font-size:.74rem; letter-spacing:.24em; }
+    .cover-tagline { max-width:330px; margin:17px auto 0; font-size:1.12rem; line-height:1.4; }
+    @media (max-width:560px) {
+      .cover-logo { width:58px; height:94px; margin:0 auto; }
+      .cover-copy { width:100%; }
+      .cover-kicker { font-size:.67rem; line-height:1.5; letter-spacing:.14em; }
+      .cover-names { margin:15px 0 7px; font-size:clamp(1.3rem,6.2vw,1.65rem); line-height:1.12; }
+      .cover-date { margin-top:13px; font-size:.7rem; letter-spacing:.2em; }
+      .cover-tagline { max-width:290px; margin-top:14px; font-size:1.04rem; line-height:1.4; }
+    }
     /* Full, softly blended flower silhouettes stay inside each panel edge. */
     .flower-ornament { max-width:calc(100% - 20px); filter:none; }
     .flower-cover { right:12px; bottom:14px; width:clamp(118px,30vw,175px); opacity:.48; transform:none; }
@@ -329,7 +341,7 @@
       <img class="flower-ornament flower-cover" src="assets/burgundy-flower-cutout.png" alt="" aria-hidden="true">
       <span class="cover-arabic" lang="ar" dir="rtl">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</span>
       <img class="cover-logo" src="assets/ribbon-logo-beige.svg" alt="Esha and Sadath ribbon emblem">
-      <span>
+      <span class="cover-copy">
         <span class="cover-kicker">Come celebrate the love that brought us here</span>
         <span class="cover-names"><span class="cover-name-line">ESHA SABEESH IBRAHIM</span><span class="cover-amp">&amp;</span><span class="cover-name-line">SADATH FARIZ</span></span>
         <span class="cover-date">31 · 01 · 2027</span>
